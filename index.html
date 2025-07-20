@@ -1,51 +1,125 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NullxTrace</title>
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <style>
     body {
-      background: #0a0a0a url('/mnt/data/88d7b574-cf5e-4ffa-8c4f-5a4015c15d42.png') repeat;
-      color: #cfcfcf;
-      font-family: 'VT323', monospace;
       margin: 0;
-      padding: 0;
-      font-size: 1.2rem;
+      font-family: 'Fira Code', monospace;
+      background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+      color: #e0e0e0;
+      line-height: 1.6;
     }
     header {
-      background: #1a1a1a;
-      padding: 20px;
+      background: rgba(26, 26, 26, 0.95);
+      padding: 40px 20px;
       text-align: center;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #222;
     }
     header h1 {
-      color: #b84cff;
+      font-size: 2.8rem;
+      color: #bd93f9;
       margin: 0;
-      font-size: 2.5rem;
     }
     header p {
-      margin: 5px 0 0;
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #888;
+      margin-top: 10px;
+    }
+    nav {
+      background: rgba(17, 17, 17, 0.9);
+      padding: 15px 0;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+    nav a {
+      color: #ccc;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      color: #bd93f9;
     }
     main {
       padding: 40px 20px;
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
     }
     section {
-      margin-bottom: 40px;
+      margin-bottom: 60px;
     }
     h2 {
-      color: #ff4cc4;
+      font-size: 2rem;
+      color: #ff79c6;
       border-bottom: 1px solid #333;
-      padding-bottom: 5px;
-      font-size: 1.8rem;
+      padding-bottom: 10px;
+    }
+    .about-section {
+      background: rgba(26, 26, 26, 0.7);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(189, 147, 249, 0.1);
+      text-align: center;
+      margin-top: 20px;
+    }
+    .about-section p {
+      font-size: 1.15rem;
+      color: #ccc;
+      line-height: 1.8;
+      letter-spacing: 0.5px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .about-section ul {
+      text-align: left;
+      list-style: square;
+    }
+    .about-section span {
+      color: #ff79c6;
+      font-weight: bold;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .service-block {
+      background: rgba(26, 26, 26, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 10px rgba(189, 147, 249, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 15px rgba(189, 147, 249, 0.3);
+    }
+    .service-block h3 {
+      font-size: 1.3rem;
+      color: #bd93f9;
+      margin: 0 0 10px;
+    }
+    .service-desc {
+      color: #aaa;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .service-price {
+      color: #ccc;
+      font-size: 1rem;
     }
     a {
-      color: #b84cff;
+      color: #bd93f9;
       text-decoration: none;
     }
     a:hover {
@@ -54,70 +128,135 @@
     footer {
       text-align: center;
       padding: 20px;
+      background: rgba(26, 26, 26, 0.95);
       font-size: 0.9rem;
-      color: #555;
-      border-top: 1px solid #333;
+      color: #666;
+      border-top: 1px solid #222;
     }
-    ul li {
-      margin-bottom: 10px;
+    .social-links {
+      margin-top: 10px;
     }
-    .service-desc {
-      font-size: 1rem;
+    .social-links a {
+      margin: 0 10px;
       color: #aaa;
-      margin-top: 4px;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>NULLXTRACE</h1>
-    <p>no logs. no noise. just impact.</p>
+    <p>Advanced Phishing Infrastructure & Red Team Toolkits</p>
   </header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#downloads">Downloads</a>
+    <a href="#contact">Contact</a>
+  </nav>
   <main>
-    <section>
+    <section id="about">
       <h2>About</h2>
-      <p>I simulate threats to strengthen defenses. From phishing campaigns and domain reputation to email security rule setups, NullxTrace delivers stealth-level testing and trace-free tactics.</p>
+      <div class="about-section">
+        <p>
+          NullxTrace builds tools and setups for red teamers. We make phishing pages, servers, and training kits to help you run better simulations. It's built by a hacker, for hackers.
+        </p>
+      </div>
     </section>
-    <section>
-      <h2>Projects</h2>
-      <p>→ <a href="https://github.com/nullxtrace" target="_blank">GitHub Repos</a></p>
-    </section>
-    <section>
-      <h2>Articles</h2>
-      <p>→ <a href="https://medium.com/@nullxtrace" target="_blank">Read on Medium</a></p>
-    </section>
-    <section>
+<section id="previews">
+  <h2>Tool Previews</h2>
+  <div style="position: relative; max-width: 800px; margin: 40px auto; overflow: hidden; border: 1px solid #333; border-radius: 10px;">
+
+    <div id="carousel" style="display: flex; transition: transform 0.5s ease;">
+      <div class="slide" style="min-width: 100%; box-sizing: border-box; padding: 30px; background: #111;">
+        <h3 style="color: #bd93f9;">Custom Phishlets</h3>
+        <p style="color: #ccc;">Preview of a crafted login clone used for red team phishing simulations. These phishlets are pixel-accurate and support stealth delivery logic for Evilginx2.</p>
+        <div style="width: 100%; height: 180px; background: #222; display: flex; align-items: center; justify-content: center; color: #666;">[Phishlet Screenshot]</div>
+      </div>
+      <div class="slide" style="min-width: 100%; box-sizing: border-box; padding: 30px; background: #111;">
+        <h3 style="color: #bd93f9;">Server & VPS Deployment</h3>
+        <p style="color: #ccc;">A look into our pre-configured phishing infrastructure setups including Apache/Nginx, DNS, SSL, and hardened VPS environments tailored for ops.</p>
+        <div style="width: 100%; height: 180px; background: #222; display: flex; align-items: center; justify-content: center; color: #666;">[VPS Setup Preview]</div>
+      </div>
+      <div class="slide" style="min-width: 100%; box-sizing: border-box; padding: 30px; background: #111;">
+        <h3 style="color: #bd93f9;">Red Team Notes & Guides</h3>
+        <p style="color: #ccc;">These downloadable guides and checklists provide practical advice for red teamers — from phishing delivery to bypassing basic detection methods.</p>
+        <div style="width: 100%; height: 180px; background: #222; display: flex; align-items: center; justify-content: center; color: #666;">[Red Team Notes Sample]</div>
+      </div>
+    </div>
+
+    <button onclick="moveSlide(-1)" style="position:absolute;top:50%;left:10px;transform:translateY(-50%);background:#222;color:#fff;border:none;padding:8px 12px;cursor:pointer;">‹</button>
+    <button onclick="moveSlide(1)" style="position:absolute;top:50%;right:10px;transform:translateY(-50%);background:#222;color:#fff;border:none;padding:8px 12px;cursor:pointer;">›</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const carousel = document.getElementById('carousel');
+    const slides = document.querySelectorAll('.slide');
+
+    function moveSlide(direction) {
+      currentSlide += direction;
+      if (currentSlide < 0) currentSlide = slides.length - 1;
+      if (currentSlide >= slides.length) currentSlide = 0;
+      carousel.style.transform = 'translateX(-' + (100 * currentSlide) + '%)';
+    }
+  </script>
+</section>
+
+<section id="services">
       <h2>Services</h2>
-      <ul>
-        <li>
-          <strong>Phishing simulation lab builds</strong>
-          <div class="service-desc">Custom phishing environments built for testing user awareness and response to real-world attack vectors.</div>
-        </li>
-        <li>
-          <strong>Domain reputation analysis</strong>
-          <div class="service-desc">Audit and improve your sending domain’s reputation to avoid blacklists and improve inbox delivery rates.</div>
-        </li>
-        <li>
-          <strong>Email security rule configuration</strong>
-          <div class="service-desc">Setup and fine-tune SPF, DKIM, DMARC, and inbound filtering rules to protect against spoofing and scam attempts.</div>
-        </li>
-        <li>
-          <strong>Custom phishing campaigns</strong>
-          <div class="service-desc">Design and deploy tailored phishing simulations to assess staff behavior, awareness, and training needs.</div>
-        </li>
-      </ul>
+      <div class="services-grid">
+        <div class="service-block">
+          <h3>Custom Phishlet Creation</h3>
+          <p class="service-desc">We copy real login pages for training. They look real and work with Evilginx2.</p>
+          <p class="service-price">Starts at $149</p>
+        </div>
+        <div class="service-block">
+          <h3>Email Infrastructure & Deliverability</h3>
+          <p class="service-desc">We set up your domain so your emails land in inbox, not spam.</p>
+          <p class="service-price">Starts at $99</p>
+        </div>
+        <div class="service-block">
+          <h3>Phishing Campaign Builds</h3>
+          <p class="service-desc">We build and run phishing tests with email sending and stats.</p>
+          <p class="service-price">Starts at $299</p>
+        </div>
+        <div class="service-block">
+          <h3>VPS Hosting & Lab Setup</h3>
+          <p class="service-desc">We set up a VPS with everything you need: Evilginx, SSL, DNS, and more.</p>
+          <p class="service-price">Starts at $150</p>
+        </div>
+        <div class="service-block">
+          <h3>Digital Assets & Notes</h3>
+          <p class="service-desc">Notes, guides, and red team tips you can download.</p>
+          <p class="service-price">Free & Premium</p>
+        </div>
+      </div>
     </section>
-    <section>
-      <h2>Resume</h2>
-      <p>Download my resume here: <a href="/resume.pdf" target="_blank">NullxTrace Resume (PDF)</a></p>
+    <section id="downloads">
+      <h2>Downloads</h2>
+      <div class="about-section">
+        <p><strong>Get red team notes, guides, and phishing tools.</strong></p>
+        <ul style="text-align:left; max-width:700px; margin:20px auto;">
+          <li><a href="#">Download: Red Team Recon Checklist (PDF)</a></li>
+          <li><a href="#">Download: Evilginx2 VPS Setup Guide</a></li>
+          <li><a href="#">Download: Phishlet Building Cheatsheet</a></li>
+        </ul>
+        <p>Need something custom? <a href="mailto:contact@nullxtrace.com">Contact me</a> or <a href="#services">see services</a>.</p>
+      </div>
     </section>
-    <section>
+    <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+      <p>Email: <a href="mailto:contact@nullxtrace.com">contact@nullxtrace.com</a></p>
+      <div class="social-links">
+        <a href="https://github.com/tt-francis" target="_blank">GitHub</a> |
+        <a href="https://medium.com/@nullxtrace" target="_blank">Medium</a> |
+        <a href="https://twitter.com/nullxtrace" target="_blank">Twitter</a> |
+        <a href="https://www.youtube.com/@nullxtrace" target="_blank">YouTube</a>
+      </div>
     </section>
   </main>
   <footer>
-    <p>&copy; 2025 NullxTrace. Built for impact.</p>
+    <p>&copy; 2025 NullxTrace — Custom phishing tools for red team operations. Visit <a href="#services">our services</a> or <a href="#downloads">download assets</a>.</p>
   </footer>
 </body>
 </html>
