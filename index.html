@@ -1,262 +1,184 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NullxTrace</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NullxTrace — Nightroot Theme</title>
+  <meta name="description" content="NullxTrace — dark hacker / cyberpunk landing" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Fira Code', monospace;
-      background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
-      color: #e0e0e0;
-      line-height: 1.6;
+    :root{
+      --bg:#050007;
+      --panel:rgba(10,6,12,0.6);
+      --neon:#00ffff;
+      --neon-2:#00bfff;
+      --muted:#9aa6b2;
+      --glass: rgba(255,255,255,0.03);
+      --accent:#00e6ff;
     }
-    header {
-      background: rgba(26, 26, 26, 0.95);
-      padding: 40px 20px;
-      text-align: center;
-      border-bottom: 1px solid #222;
-    }
-    header h1 {
-      font-size: 2.8rem;
-      color: #bd93f9;
-      margin: 0;
-    }
-    header p {
-      font-size: 1.1rem;
-      color: #888;
-      margin-top: 10px;
-    }
-    nav {
-      background: rgba(17, 17, 17, 0.9);
-      padding: 15px 0;
-      text-align: center;
-      border-bottom: 1px solid #222;
-    }
-    nav a {
-      color: #ccc;
-      margin: 0 15px;
-      text-decoration: none;
-      font-size: 1rem;
-    }
-    nav a:hover {
-      color: #bd93f9;
-    }
-    main {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    section {
-      margin-bottom: 60px;
-    }
-    h2 {
-      font-size: 2rem;
-      color: #ff79c6;
-      border-bottom: 1px solid #333;
-      padding-bottom: 10px;
-    }
-    .about-section {
-      background: rgba(26, 26, 26, 0.7);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(189, 147, 249, 0.1);
-      text-align: center;
-      margin-top: 20px;
-    }
-    .about-section p {
-      font-size: 1.15rem;
-      color: #ccc;
-      line-height: 1.8;
-      letter-spacing: 0.5px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .about-section ul {
-      text-align: left;
-      list-style: square;
-    }
-    .about-section span {
-      color: #ff79c6;
-      font-weight: bold;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-    .service-block {
-      background: rgba(26, 26, 26, 0.6);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 0 10px rgba(189, 147, 249, 0.1);
-      padding: 20px;
-      border-radius: 10px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .service-block:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 15px rgba(189, 147, 249, 0.3);
-    }
-    .service-block h3 {
-      font-size: 1.3rem;
-      color: #bd93f9;
-      margin: 0 0 10px;
-    }
-    .service-desc {
-      color: #aaa;
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
-    .service-price {
-      color: #ccc;
-      font-size: 1rem;
-    }
-    a {
-      color: #bd93f9;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(26, 26, 26, 0.95);
-      font-size: 0.9rem;
-      color: #666;
-      border-top: 1px solid #222;
-    }
-    .social-links {
-      margin-top: 10px;
-    }
-    .social-links a {
-      margin: 0 10px;
-      color: #aaa;
-    }
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{margin:0;font-family: 'Fira Code', monospace;background:radial-gradient(1200px 600px at 10% 10%, rgba(0,255,255,0.035), transparent), linear-gradient(180deg,var(--bg) 0%, #08040a 60%);color:#e6e6e6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;}
+
+    .bg-wrap{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+    .grid-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg, rgba(0,255,255,0.03) 0 1px, transparent 1px 40px), repeating-linear-gradient(90deg, rgba(0,191,255,0.02) 0 1px, transparent 1px 40px);opacity:0.12;transform:translateZ(0)}
+    .glow-orb{position:absolute;filter:blur(80px);opacity:0.5;border-radius:50%;mix-blend-mode:screen}
+    .orb-1{width:900px;height:900px;left:-200px;top:-200px;background:radial-gradient(circle at 30% 30%, rgba(0,255,255,0.18), rgba(0,255,255,0.02) 40%, transparent 60%);animation:floaty 8s ease-in-out infinite}
+    .orb-2{width:600px;height:600px;right:-150px;bottom:-150px;background:radial-gradient(circle at 60% 60%, rgba(0,191,255,0.12), transparent 50%);animation:floaty 10s ease-in-out infinite}
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)}}
+
+    .wrap{position:relative;max-width:1100px;margin:6vh auto;padding:40px 28px;z-index:2}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--neon),var(--neon-2));display:flex;align-items:center;justify-content:center;color:#050005;font-weight:800;box-shadow:0 10px 40px rgba(0,255,255,0.12)}
+    .brand h1{margin:0;font-size:20px;font-family:'Orbitron', sans-serif;letter-spacing:1px}
+    .brand small{display:block;color:var(--muted);font-size:12px}
+
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+    nav a.cta{background:linear-gradient(90deg,var(--neon),var(--neon-2));padding:8px 14px;border-radius:8px;color:#050005;font-weight:700}
+
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:26px;align-items:start;margin-bottom:32px}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);padding:26px;border-radius:12px;font-family:'Fira Code', monospace}
+    .main-headline{font-size:44px;line-height:1.02;margin:0 0 12px;color:var(--neon);text-shadow:0 10px 40px rgba(0,255,255,0.06);font-family:'Orbitron', sans-serif}
+    .sub{color:var(--muted);margin-bottom:14px;font-size:15px}
+
+    .terminal{background:#05050a;border-radius:8px;padding:14px;font-family:'Fira Code', monospace;color:#00e6ff;font-size:13px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.02);margin-top:14px;white-space:pre-wrap;overflow:hidden;max-height:180px}
+    .btn-row{display:flex;gap:12px;margin-top:16px}
+    .btn{padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);cursor:pointer;font-weight:700;background:transparent;color:var(--muted)}
+    .btn.primary{background:linear-gradient(90deg,var(--neon),var(--neon-2));color:#050005;border:none}
+
+    .card{display:flex;flex-direction:column;gap:12px;align-items:flex-start;background:var(--panel);padding:20px;border-radius:12px;box-shadow:0 8px 40px rgba(0,255,255,0.1)}
+    .stat{display:flex;align-items:center;gap:12px}
+    .dot{width:12px;height:12px;border-radius:50%;background:var(--neon);box-shadow:0 0 18px rgba(0,255,255,0.22)}
+    .small{color:var(--muted);font-size:13px}
+
+    section{margin-top:26px}
+    h2{font-size:1.8rem;color:var(--accent);border-bottom:1px solid rgba(255,255,255,0.03);padding-bottom:8px;font-family:'Orbitron', sans-serif}
+
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:18px}
+    .service-block{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);backdrop-filter:blur(6px);border-radius:10px;padding:18px;border:1px solid rgba(255,255,255,0.03);transition:transform .28s ease,box-shadow .28s ease;font-family:'Fira Code', monospace}
+    .service-block:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,255,255,0.06)}
+    .service-block h3{color:var(--neon);margin:0 0 8px;font-family:'Orbitron', sans-serif}
+    .service-desc{color:#dfe}
+    .service-price{color:var(--muted)}
+
+    footer{margin-top:36px;color:var(--muted);font-size:13px;text-align:center;padding:18px;font-family:'Fira Code', monospace}
   </style>
 </head>
 <body>
-  <header>
-    <h1>NULLXTRACE</h1>
-    <p>Advanced Phishing Infrastructure & Red Team Toolkits</p>
-  </header>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#downloads">Downloads</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <main>
-    <section id="about">
-      <h2>About</h2>
-      <div class="about-section">
-        <p>
-          NullxTrace builds tools and setups for red teamers. We make phishing pages, servers, and training kits to help you run better simulations. It's built by a hacker, for hackers.
-        </p>
-      </div>
-    </section>
-<section id="previews">
-  <h2>Tool Previews</h2>
-  <div style="position: relative; max-width: 800px; margin: 40px auto; overflow: hidden; border: 1px solid #333; border-radius: 10px;">
-
-    <div id="carousel" style="display: flex; transition: transform 0.5s ease;">
-      <div class="slide" style="min-width: 100%; box-sizing: border-box; padding: 30px; background: #111;">
-        <h3 style="color: #bd93f9;">Custom Phishlets</h3>
-        <p style="color: #ccc;">Preview of a crafted login clone used for red team phishing simulations. These phishlets are pixel-accurate and support stealth delivery logic for Evilginx2.</p>
-        <div style="width: 100%; height: 180px; background: #222; display: flex; align-items: center; justify-content: center; color: #666;">[Phishlet Screenshot]</div>
-      </div>
-      <div class="slide" style="min-width: 100%; box-sizing: border-box; padding: 30px; background: #111;">
-        <h3 style="color: #bd93f9;">Server & VPS Deployment</h3>
-        <p style="color: #ccc;">A look into our pre-configured phishing infrastructure setups including Apache/Nginx, DNS, SSL, and hardened VPS environments tailored for ops.</p>
-        <div style="width: 100%; height: 180px; background: #222; display: flex; align-items: center; justify-content: center; color: #666;">[VPS Setup Preview]</div>
-      </div>
-      <div class="slide" style="min-width: 100%; box-sizing: border-box; padding: 30px; background: #111;">
-        <h3 style="color: #bd93f9;">Red Team Notes & Guides</h3>
-        <p style="color: #ccc;">These downloadable guides and checklists provide practical advice for red teamers — from phishing delivery to bypassing basic detection methods.</p>
-        <div style="width: 100%; height: 180px; background: #222; display: flex; align-items: center; justify-content: center; color: #666;">[Red Team Notes Sample]</div>
-      </div>
-    </div>
-
-    <button onclick="moveSlide(-1)" style="position:absolute;top:50%;left:10px;transform:translateY(-50%);background:#222;color:#fff;border:none;padding:8px 12px;cursor:pointer;">‹</button>
-    <button onclick="moveSlide(1)" style="position:absolute;top:50%;right:10px;transform:translateY(-50%);background:#222;color:#fff;border:none;padding:8px 12px;cursor:pointer;">›</button>
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="grid-lines"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
   </div>
 
-  <script>
-    let currentSlide = 0;
-    const carousel = document.getElementById('carousel');
-    const slides = document.querySelectorAll('.slide');
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">NR</div>
+        <div>
+          <h1>NULLXTRACE</h1>
+          <small>Monthly Email & Website Security for Small Businesses</small>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a class="cta" href="#contact">Contact</a>
+      </nav>
+    </header>
 
-    function moveSlide(direction) {
-      currentSlide += direction;
-      if (currentSlide < 0) currentSlide = slides.length - 1;
-      if (currentSlide >= slides.length) currentSlide = 0;
-      carousel.style.transform = 'translateX(-' + (100 * currentSlide) + '%)';
-    }
-  </script>
-</section>
+    <main class="hero">
+      <div class="panel">
+        <h2 class="main-headline">CyberShield Monthly</h2>
+        <p class="sub">Full-stack email and website security service for small businesses. Protect your digital presence with stealth, automation, and monthly reporting.</p>
 
-<section id="services">
-      <h2>Services</h2>
+        <div class="terminal" id="terminal">
+<pre id="termText"></pre>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn primary" onclick="cta()">Request Service</button>
+          <button class="btn" onclick="toggleTerminal()">Toggle Terminal</button>
+        </div>
+      </div>
+
+      <aside class="card panel">
+        <img src="/ghost.gif" alt="Ghost logo" style="width:160px;height:160px;object-fit:contain;border-radius:12px;box-shadow:0 10px 40px rgba(0,255,255,0.12);margin-bottom:8px" onerror="this.style.display='none'">
+        <div class="stat"><div class="dot"></div><div><div style="font-weight:700">Email Shield</div><div class="small">Deliverability & authentication</div></div></div>
+        <div class="stat"><div class="dot" style="background:var(--neon-2)"></div><div><div style="font-weight:700">Web Shield</div><div class="small">Updates, scans & firewall</div></div></div>
+        <div class="stat"><div class="dot" style="background:#00b3ff"></div><div><div style="font-weight:700">Reporting</div><div class="small">Monthly insights & alerts</div></div></div>
+      </aside>
+    </main>
+
+    <section id="services">
+      <h2>Our Services</h2>
       <div class="services-grid">
         <div class="service-block">
-          <h3>Custom Phishlet Creation</h3>
-          <p class="service-desc">We copy real login pages for training. They look real and work with Evilginx2.</p>
-          <p class="service-price">Starts at $149</p>
+          <h3>Email Security Hardening</h3>
+          <p class="service-desc">We monitor and configure SPF, DKIM, and DMARC, fix deliverability issues, and ensure emails consistently reach your clients.</p>
+          <p class="service-price">Starting at $49/month</p>
         </div>
         <div class="service-block">
-          <h3>Email Infrastructure & Deliverability</h3>
-          <p class="service-desc">We set up your domain so your emails land in inbox, not spam.</p>
-          <p class="service-price">Starts at $99</p>
+          <h3>Website Security Hardening</h3>
+          <p class="service-desc">Monthly malware scans, CMS/plugin updates, firewall management, SSL monitoring, and automated backups for continuous protection.</p>
+          <p class="service-price">Starting at $97/month</p>
         </div>
         <div class="service-block">
-          <h3>Phishing Campaign Builds</h3>
-          <p class="service-desc">We build and run phishing tests with email sending and stats.</p>
-          <p class="service-price">Starts at $299</p>
-        </div>
-        <div class="service-block">
-          <h3>VPS Hosting & Lab Setup</h3>
-          <p class="service-desc">We set up a VPS with everything you need: Evilginx, SSL, DNS, and more.</p>
-          <p class="service-price">Starts at $150</p>
-        </div>
-        <div class="service-block">
-          <h3>Digital Assets & Notes</h3>
-          <p class="service-desc">Notes, guides, and red team tips you can download.</p>
-          <p class="service-price">Free & Premium</p>
+          <h3>Full Monthly Security Bundle</h3>
+          <p class="service-desc">A complete package combining email and website security with monthly reports, proactive alerts, and full management for peace of mind.</p>
+          <p class="service-price">$199/month</p>
         </div>
       </div>
     </section>
-    <section id="downloads">
-      <h2>Downloads</h2>
-      <div class="about-section">
-        <p><strong>Get red team notes, guides, and phishing tools.</strong></p>
-        <ul style="text-align:left; max-width:700px; margin:20px auto;">
-          <li><a href="#">Download: Red Team Recon Checklist (PDF)</a></li>
-          <li><a href="#">Download: Evilginx2 VPS Setup Guide</a></li>
-          <li><a href="#">Download: Phishlet Building Cheatsheet</a></li>
-        </ul>
-        <p>Need something custom? <a href="mailto:contact@nullxtrace.com">Contact me</a> or <a href="#services">see services</a>.</p>
-      </div>
-    </section>
+
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:contact@nullxtrace.com">contact@nullxtrace.com</a></p>
-      <div class="social-links">
-        <a href="https://github.com/tt-francis" target="_blank">GitHub</a> |
-        <a href="https://medium.com/@nullxtrace" target="_blank">Medium</a> |
-        <a href="https://twitter.com/nullxtrace" target="_blank">Twitter</a> |
-        <a href="https://www.youtube.com/@nullxtrace" target="_blank">YouTube</a>
-      </div>
     </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 NullxTrace — Custom phishing tools for red team operations. Visit <a href="#services">our services</a> or <a href="#downloads">download assets</a>.</p>
-  </footer>
+
+    <footer>
+      <p>&copy; 2025 NullxTrace — CyberShield monthly email & website security. Focus on your business; we handle the digital threats.</p>
+    </footer>
+  </div>
+
+  <script>
+    const term = document.getElementById('termText');
+    const lines = [
+      '$ initializing CyberShield modules...',
+      '> scanning email deliverability ... OK',
+      '> checking website vulnerabilities ... OK',
+      '> monitoring ongoing threats ... OK',
+      '$ ready for monthly management.'
+    ];
+    let termVisible = true;
+
+    function toggleTerminal(){ termVisible = !termVisible; term.style.display = termVisible ? 'block' : 'none'; }
+
+    function animateTerminal(){
+      term.innerText = '';
+      let i = 0;
+      function typeLine(){
+        if(i >= lines.length) return;
+        let line = lines[i];
+        let j = 0;
+        function typeChar(){
+          if(j < line.length){ term.innerText += line[j]; j++; setTimeout(typeChar, 40); }
+          else { term.innerText += '\n'; i++; setTimeout(typeLine, 200); }
+        }
+        typeChar();
+      }
+      typeLine();
+    }
+
+    function cta(){
+      animateTerminal();
+      setTimeout(()=>{
+        term.innerText += '> service request sent...\n> monthly protection active\n> check email report (mock)';
+      }, 3500);
+    }
+
+    animateTerminal();
+  </script>
 </body>
 </html>
